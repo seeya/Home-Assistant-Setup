@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   homeassistant:
     container_name: homeassistant
@@ -26,6 +26,21 @@ services:
     restart: always
     networks:
       - ha_network
+
+  ewelink:
+    container_name: ewelink
+    image: ewelink_smart_home
+    restart: always
+    env_file:
+      - ./.env
+    volumes:
+      - /home/pi/homeassistant/ewelink:/data
+    ports:
+      - 3000:3000
+    networks:
+      - ha_network
+    depends_on:
+      - homeassistant
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
