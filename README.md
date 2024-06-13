@@ -40,7 +40,7 @@ mqtt:
   user: xxxx
   password: xxxx
 serial:
-  adapter: ezsp
+  # adapter: ezsp # uncomment this if you're using SONOFF ZBDongle-E
   port: /dev/ttyACM0
 ...
 ```
